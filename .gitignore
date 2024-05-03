@@ -1,5 +1,2 @@
 /node_modules
-
-sudo ssh-keygen -t rsa -b 4096 -C "ivanmelo47@gmail.com"
-
-
+/includes/.env
