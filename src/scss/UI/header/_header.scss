@@ -40,6 +40,17 @@
     }
   }
 
+  &__form {
+    display: flex;
+    align-items: center;
+  }
+
+  &__submit {
+    @extend .header__enlace;
+    background-color: transparent;
+    border: none;
+  }
+
   &__contenido {
     padding-top: 10rem;
     @include m.tablet {
