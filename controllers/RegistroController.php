@@ -7,22 +7,42 @@ use Model\Usuario;
 use Model\Paquete;
 use MVC\Router;
 
-class RegistroController {
+class RegistroController
+{
 
-    public static function crear(Router $router) {
+    public static function crear(Router $router)
+    {
+
+        if (!is_auth()) {
+            header('Location: /');
+        }
+
+        // Verificar si el usuario ya esta registrado
+        $registro = Registro::where('usuario_id', $_SESSION['id']);
+        if (isset($registro) && $registro->paquete_id === "3") {
+            header('Location: /boleto?id=' . urlencode($registro->token));
+        }
+
         $router->render('registro/crear', [
             'titulo' => 'Finalizar Registro'
         ]);
     }
 
-    public static function gratis(Router $router) {
-        
+    public static function gratis(Router $router)
+    {
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!is_auth()) {
                 header('Location: /login');
             }
 
-            $token = substr( md5(uniqid( rand(), true )), 0, 8 );
+            // Verificar si el usuario ya esta registrado
+            $registro = Registro::where('usuario_id', $_SESSION['id']);
+            if (isset($registro) && $registro->paquete_id === "3") {
+                header('Location: /boleto?id=' . urlencode($registro->token));
+            }
+
+            $token = substr(md5(uniqid(rand(), true)), 0, 8);
 
             // Crear Registro
             $datos = array(
@@ -42,7 +62,8 @@ class RegistroController {
         }
     }
 
-    public static function boleto(Router $router) {
+    public static function boleto(Router $router)
+    {
 
         // Validar la URL
         $id = $_GET['id'];
@@ -66,5 +87,4 @@ class RegistroController {
             'registro' => $registro
         ]);
     }
-
 }

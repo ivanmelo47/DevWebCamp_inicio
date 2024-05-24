@@ -1,0 +1,10 @@
+// Business Account
+Sandbox URL: https://sandbox.paypal.com
+Email: sb-grcbn30905197@business.example.com
+Password: M]qF72u^
+
+
+// Personal Account
+Sandbox URL: https://sandbox.paypal.com
+Email: sb-kpwcz30910968@personal.example.com
+Password: oI11Y/Lj

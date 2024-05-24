@@ -810,7 +810,10 @@ h3 {
   .boleto--acceso {
     width: 60rem;
     height: 30rem;
-    padding: 5rem;
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 .boleto--acceso .boleto__logo {
@@ -833,11 +836,28 @@ h3 {
   left: 0;
   width: 100%;
 }
+@media (min-width: 768px) {
+  .boleto--acceso .boleto__codigo {
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+    top: 0;
+    left: calc(100% - 5rem);
+    width: 30rem;
+  }
+}
 .boleto::before {
   -webkit-clip-path: circle(50% at 50% 25%);
           clip-path: circle(50% at 50% 25%);
   left: calc(50% - 2.5rem);
   top: 0;
+}
+@media (min-width: 768px) {
+  .boleto::before {
+    -webkit-clip-path: circle(50% at 25% 50%);
+            clip-path: circle(50% at 25% 50%);
+    left: 0;
+    top: calc(50% - 2.5rem);
+  }
 }
 .boleto::after {
   -webkit-clip-path: circle(50% at 50% 75%);
@@ -845,6 +865,15 @@ h3 {
   left: calc(50% - 2.5rem);
   top: calc(100% - 5rem);
 }
+@media (min-width: 768px) {
+  .boleto::after {
+    -webkit-clip-path: circle(50% at 75% 50%);
+            clip-path: circle(50% at 75% 50%);
+    left: calc(100% - 5rem);
+    top: calc(50% - 2.5rem);
+  }
+}
+
 @media (min-width: 375px) {
   .boleto {
     height: 45rem;

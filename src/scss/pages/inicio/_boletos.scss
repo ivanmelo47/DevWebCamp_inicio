@@ -96,7 +96,10 @@
     @include m.tablet {
       width: 60rem;
       height: 30rem;
-      padding: 5rem
+      padding: 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     #{$modificador}__logo {
@@ -120,6 +123,14 @@
       margin: 0;
       left: 0;
       width: 100%;
+
+      @include m.tablet {
+        transform: rotate(90deg);
+        transform-origin: 0 0;
+        top: 0;
+        left: calc(100% - 5rem);
+        width: 30rem;
+      }
     }
 
     
@@ -131,7 +142,9 @@
     left: calc(50% - 2.5rem);
     top: 0;
     @include m.tablet {
-
+      clip-path: circle(50% at 25% 50%);
+      left: 0;
+      top: calc(50% - 2.5rem);
     }
   }
 
@@ -140,10 +153,11 @@
     left: calc(50% - 2.5rem);
     top: calc(100% - 5rem);
     @include m.tablet {
-      
+      clip-path: circle(50% at 75% 50%);
+      left: calc(100% - 5rem);
+      top: calc(50% - 2.5rem);
     }
   }
-
 }
 
 .boleto {
